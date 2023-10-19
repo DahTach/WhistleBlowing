@@ -20,9 +20,10 @@ curl -L https://deb.globaleaks.org/globaleaks.asc | apt-key add
 echo "Updating GlobaLeaks apt source.list in /etc/apt/sources.list.d/globaleaks.list ..."
 echo "deb http://deb.globaleaks.org $DISTRO_CODENAME/" > /etc/apt/sources.list.d/globaleaks.list
 
-DO "apt-get update -y"
+DO "apt-get update -q -y"
 DO "apt-get install globaleaks -y"
-sleep 5
+DO "apt-get remove wget && apt-get clean"
+rm -rf /var/lib/apt/lists/*
 
 i=0
 while [ $i -lt 30 ]

@@ -9,12 +9,6 @@ RUN wget https://github.com/DahTach/WhistleBlowing/blob/a4420d4ef4dd197488d672bb
 RUN chmod +x install.sh
 RUN ./install.sh -y -n
 
-RUN apt-get update -q && \
-    apt-get install -y globaleaks && \
-    apt-get remove wget \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 VOLUME [ "/var/globaleaks/" ]
 
 EXPOSE 8080
