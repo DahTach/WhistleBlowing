@@ -5,7 +5,7 @@ RUN apt-get update -q && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget https://raw.githubusercontent.com/DahTach/WhistleBlowing/a4420d4ef4dd197488d672bb949507d50d82e69e/install.sh
+RUN wget https://raw.githubusercontent.com/DahTach/WhistleBlowing/main/install.sh
 RUN chmod +x install.sh
 RUN ./install.sh -y -n
 
