@@ -22,7 +22,8 @@ echo "deb http://deb.globaleaks.org $DISTRO_CODENAME/" > /etc/apt/sources.list.d
 
 apt-get update -q -y
 apt-get install globaleaks -y
-apt-get remove wget && apt-get clean
+apt-get remove wget
+apt-get clean
 rm -rf /var/lib/apt/lists/*
 
 i=0
