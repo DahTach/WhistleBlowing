@@ -8,6 +8,9 @@ RUN apt-get update -q && \
 RUN wget https://raw.githubusercontent.com/DahTach/WhistleBlowing/main/install.sh
 RUN chmod +x install.sh
 RUN ./install.sh -y -n
+    
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 VOLUME [ "/var/globaleaks/" ]
 

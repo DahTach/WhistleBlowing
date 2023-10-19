@@ -21,10 +21,7 @@ echo "Updating GlobaLeaks apt source.list in /etc/apt/sources.list.d/globaleaks.
 echo "deb http://deb.globaleaks.org $DISTRO_CODENAME/" > /etc/apt/sources.list.d/globaleaks.list
 
 apt-get update -q -y
-apt-get install globaleaks -y
-apt-get remove wget -y
-apt-get clean
-rm -rf /var/lib/apt/lists/*
+apt-get install -y globaleaks
 
 i=0
 while [ $i -lt 30 ]
