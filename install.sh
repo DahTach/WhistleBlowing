@@ -7,10 +7,10 @@ DISABLEAUTOSTART=0
 echo -e "Running the GlobaLeaks installation..."
 
 # align apt-get cache to up-to-date state on configured repositories
-DO "apt-get -y update"
-DO "apt-get install -y tzdata"
+apt-get -y update
+apt-get install -y tzdata
 dpkg-reconfigure -f noninteractive tzdata
-DO "apt-get -y install curl gnupg software-properties-common"
+apt-get -y install curl gnupg net-tools software-properties-common
 
 DISTRO="Debian"
 DISTRO_CODENAME="bookworm"
@@ -20,9 +20,9 @@ curl -L https://deb.globaleaks.org/globaleaks.asc | apt-key add
 echo "Updating GlobaLeaks apt source.list in /etc/apt/sources.list.d/globaleaks.list ..."
 echo "deb http://deb.globaleaks.org $DISTRO_CODENAME/" > /etc/apt/sources.list.d/globaleaks.list
 
-DO "apt-get update -q -y"
-DO "apt-get install globaleaks -y"
-DO "apt-get remove wget && apt-get clean"
+apt-get update -q -y
+apt-get install globaleaks -y
+apt-get remove wget && apt-get clean
 rm -rf /var/lib/apt/lists/*
 
 i=0
