@@ -10,7 +10,7 @@ echo -e "Running the GlobaLeaks installation..."
 DO "apt-get -y update"
 DO "apt-get install -y tzdata"
 dpkg-reconfigure -f noninteractive tzdata
-DO "apt-get -y install curl gnupg net-tools software-properties-common"
+DO "apt-get -y install curl gnupg software-properties-common"
 
 DISTRO="Debian"
 DISTRO_CODENAME="bookworm"
