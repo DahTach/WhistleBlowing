@@ -12,9 +12,8 @@ DO "apt-get install -y tzdata"
 dpkg-reconfigure -f noninteractive tzdata
 DO "apt-get -y install curl gnupg net-tools software-properties-common"
 
-DISTRO="$(lsb_release -is)"
-DISTRO_CODENAME="$(lsb_release -cs)"
-echo "Detected OS: $DISTRO - $DISTRO_CODENAME"
+DISTRO="Debian"
+DISTRO_CODENAME="bookworm"
 
 echo "Adding GlobaLeaks PGP key to trusted APT keys"
 curl -L https://deb.globaleaks.org/globaleaks.asc | apt-key add
