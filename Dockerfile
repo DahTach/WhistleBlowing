@@ -2,6 +2,7 @@ FROM debian:12-slim
 
 RUN apt-get update -q && \
     apt-get install -y wget && \
+    apt-get install -y netstat && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
