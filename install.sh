@@ -3,18 +3,18 @@
 export DEBIAN_FRONTEND=noninteractive
 
 DISABLEAUTOSTART=0
-DISTRO="$(lsb_release -is)"
-DISTRO_CODENAME="$(lsb_release -cs)"
 
 echo -e "Running the GlobaLeaks installation..."
-
-echo "Detected OS: $DISTRO - $DISTRO_CODENAME"
 
 # align apt-get cache to up-to-date state on configured repositories
 DO "apt-get -y update"
 DO "apt-get install -y tzdata"
 dpkg-reconfigure -f noninteractive tzdata
 DO "apt-get -y install curl gnupg net-tools software-properties-common"
+
+DISTRO="$(lsb_release -is)"
+DISTRO_CODENAME="$(lsb_release -cs)"
+echo "Detected OS: $DISTRO - $DISTRO_CODENAME"
 
 echo "Adding GlobaLeaks PGP key to trusted APT keys"
 curl -L https://deb.globaleaks.org/globaleaks.asc | apt-key add
